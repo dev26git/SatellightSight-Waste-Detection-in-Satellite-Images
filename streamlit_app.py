@@ -63,27 +63,12 @@ def main():
         label="Select a Satellite Image",
         images=[
             cv2.cvtColor(cv2.imread(os.path.join(sample_images_folder, path)), cv2.COLOR_BGR2RGB) for path in os.listdir(sample_images_folder)
-        ]
-        # ,captions=["Sample Image 1"],
+        ],
+        captions=os.listdir(sample_images_folder)
     )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     st.write("##")
     st.write("##")
-
 
     # MAIN CODE
     # if file is not None:
