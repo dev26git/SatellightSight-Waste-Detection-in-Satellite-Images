@@ -3,6 +3,7 @@ import streamlit as st
 import cv2
 import numpy as np
 import Prediction
+from streamlit_image_select import image_select
 
 
 def main():
@@ -48,8 +49,37 @@ def main():
 
 
     # FILE UPLOAD
-    with st.container():
-        file = st.file_uploader("**Upload a satellite image here**", type=['jpeg', 'jpg', 'png'])
+    # with st.container():
+    #     file = st.file_uploader("**Upload a satellite image here**", type=['jpeg', 'jpg', 'png'])
+
+
+
+
+
+
+
+    file = image_select(
+        label="Select a Satellite Image",
+        images=[
+            "image_repo/Sample_Satellite_Images/0006.jpg"
+        ],
+        captions=["Sample Image 1"],
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     st.write("##")
