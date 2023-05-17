@@ -41,8 +41,8 @@ def main():
     #     with annotated_img:
     #         st.image(Image.open("image_repo/sample_annotated_image.jpg"))
 
-    st.write("##")
-    st.write("##")
+    # st.write("##")
+    # st.write("##")
     st.write("##")
     st.write("##")
 
