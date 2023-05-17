@@ -58,11 +58,11 @@ def main():
 
 
 
-
+    sample_images_folder = "image_repo/Sample_Satellite_Images"
     img_bgr = image_select(
         label="Select a Satellite Image",
         images=[
-            cv2.imread(path) for path in os.listdir("image_repo/Sample_Satellite_Images")
+            cv2.imread(os.path.join(sample_images_folder, path)) for path in os.listdir(sample_images_folder)
         ]
         # ,captions=["Sample Image 1"],
     )
