@@ -61,6 +61,7 @@ def main():
 
         with st.container():
             st.subheader("Model Output")
+            st.write("Please wait for the model to work its magic.")
             user_input, arrow, output_image = st.columns((5, 1, 5))
             # Print input image
             with user_input:
