@@ -1,7 +1,6 @@
 from PIL import Image
 import streamlit as st
 import cv2
-import numpy as np
 import Prediction
 from streamlit_image_select import image_select
 import os
@@ -25,11 +24,13 @@ def main():
 
     # HEADER SECTION
     st.title(":blue[SatellightSight] :satellite:")
-    # st.markdown("<h1 style='text-align: center; color: blue;'>SatellightSight</h1>", unsafe_allow_html=True)
 
     st.write("##")
     st.subheader('An automated machine learning approach to detect waste dumps in satellite images')
-    st.write("##")
+    st.write("A Machine Learning approach to detect waste dumps using satellite images."
+             "I use texture analysis techniques like GLCM and LBP."
+             "I also created a state-of-the-art Sliding Window Algorithm to analyse sub-images. It is adapted to the training data used for the model."
+             "A binary classifier model is used to classify each sub-image of a given satellite image into 2 categories- waste or non-waste.")
 
     # DISPLAY SAMPLE ANNOTATION
     # with st.container():
@@ -41,14 +42,8 @@ def main():
     #     with annotated_img:
     #         st.image(Image.open("image_repo/sample_annotated_image.jpg"))
 
-    # st.write("##")
-    # st.write("##")
     st.write("##")
     st.write("##")
-
-    # FILE UPLOAD
-    # with st.container():
-    #     file = st.file_uploader("**Upload a satellite image here**", type=['jpeg', 'jpg', 'png'])
 
     sample_images_folder = "image_repo/Sample_Satellite_Images"
     img_rgb = image_select(
@@ -65,11 +60,6 @@ def main():
     # MAIN CODE
     # if file is not None:
     if img_rgb is not None:
-        # read image
-        # file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8)
-        # img_bgr = cv2.imdecode(file_bytes, 1)
-
-        # img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
 
         with st.container():
             st.subheader("Model Output")
