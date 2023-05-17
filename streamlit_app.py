@@ -59,10 +59,10 @@ def main():
 
 
     sample_images_folder = "image_repo/Sample_Satellite_Images"
-    img_bgr = image_select(
+    img_rgb = image_select(
         label="Select a Satellite Image",
         images=[
-            cv2.imread(os.path.join(sample_images_folder, path)) for path in os.listdir(sample_images_folder)
+            cv2.cvtColor(cv2.imread(os.path.join(sample_images_folder, path)), cv2.COLOR_BGR2RGB) for path in os.listdir(sample_images_folder)
         ]
         # ,captions=["Sample Image 1"],
     )
@@ -87,12 +87,12 @@ def main():
 
     # MAIN CODE
     # if file is not None:
-    if img_bgr is not None:
+    if img_rgb is not None:
         # read image
         # file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8)
         # img_bgr = cv2.imdecode(file_bytes, 1)
 
-        img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
+        # img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
 
         with st.container():
             st.subheader("Model Output")
