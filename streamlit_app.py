@@ -27,11 +27,9 @@ def main():
 
     st.write("##")
     st.subheader('An automated machine learning approach to detect waste dumps in satellite images')
-    st.write("A Machine Learning approach to detect waste dumps using satellite images."
-             "I use texture analysis techniques like GLCM and LBP."
-             "I also created a state-of-the-art Sliding Window Algorithm to analyse sub-images. It is adapted to the training data used for the model."
-             "A binary classifier model is used to classify each sub-image of a given satellite image into 2 categories- waste or non-waste.")
-
+    st.write("I use texture analysis techniques like GLCM and LBP.")
+    st.write("I also created a state-of-the-art Sliding Window Algorithm to analyse sub-images. It is adapted to the training data used for the model.")
+    st.write("A binary classifier model is used to classify each sub-image of a given satellite image into 2 categories- waste or non-waste.")
     # DISPLAY SAMPLE ANNOTATION
     # with st.container():
     #     original_img, arrow, annotated_img = st.columns((5, 1, 5))
