@@ -58,10 +58,10 @@ def main():
 
 
 
-    file = image_select(
+    img_rgb = image_select(
         label="Select a Satellite Image",
         images=[
-            "image_repo/Sample_Satellite_Images/0006.jpg"
+            cv2.imread("image_repo/Sample_Satellite_Images/0006.jpg")
         ],
         captions=["Sample Image 1"],
     )
@@ -87,11 +87,13 @@ def main():
 
 
     # MAIN CODE
-    if file is not None:
+    # if file is not None:
+    if img_rgb is not None:
         # read image
-        file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8)
-        img_bgr = cv2.imdecode(file_bytes, 1)
-        img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
+        # file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8)
+        # img_bgr = cv2.imdecode(file_bytes, 1)
+
+        # img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
 
         with st.container():
             st.subheader("Model Output")
