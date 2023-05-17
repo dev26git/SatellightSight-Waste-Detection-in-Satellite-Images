@@ -27,44 +27,36 @@ def main():
     st.title(":blue[SatellightSight] :satellite:")
     # st.markdown("<h1 style='text-align: center; color: blue;'>SatellightSight</h1>", unsafe_allow_html=True)
 
-
     st.write("##")
     st.subheader('An automated machine learning approach to detect waste dumps in satellite images')
     st.write("##")
 
     # DISPLAY SAMPLE ANNOTATION
-    with st.container():
-        original_img, arrow, annotated_img = st.columns((5, 1, 5))
-        with original_img:
-            st.image(Image.open("image_repo/sample_original_image.jpg"))
-        with arrow:
-            st.image(Image.open("image_repo/NavyBlueArrow.png"))
-        with annotated_img:
-            st.image(Image.open("image_repo/sample_annotated_image.jpg"))
+    # with st.container():
+    #     original_img, arrow, annotated_img = st.columns((5, 1, 5))
+    #     with original_img:
+    #         st.image(Image.open("image_repo/sample_original_image.jpg"))
+    #     with arrow:
+    #         st.image(Image.open("image_repo/NavyBlueArrow.png"))
+    #     with annotated_img:
+    #         st.image(Image.open("image_repo/sample_annotated_image.jpg"))
 
-
     st.write("##")
     st.write("##")
     st.write("##")
     st.write("##")
-
 
     # FILE UPLOAD
     # with st.container():
     #     file = st.file_uploader("**Upload a satellite image here**", type=['jpeg', 'jpg', 'png'])
-
-
-
-
-
 
     sample_images_folder = "image_repo/Sample_Satellite_Images"
     img_rgb = image_select(
         label="Select a Satellite Image",
         images=[
             cv2.cvtColor(cv2.imread(os.path.join(sample_images_folder, path)), cv2.COLOR_BGR2RGB) for path in os.listdir(sample_images_folder)
-        ],
-        captions=os.listdir(sample_images_folder)
+        ]
+        # captions=os.listdir(sample_images_folder)
     )
 
     st.write("##")
