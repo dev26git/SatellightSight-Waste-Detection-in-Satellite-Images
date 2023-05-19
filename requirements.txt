@@ -4,5 +4,6 @@ pandas
 scikit-image
 scikit-learn
 Pillow
-streamlit
+streamlit==1.22.0
 streamlit-image-select
+urllib3==1.26.6
