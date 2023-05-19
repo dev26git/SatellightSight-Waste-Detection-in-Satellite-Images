@@ -5,10 +5,13 @@ import Prediction
 from streamlit_image_select import image_select
 import os
 
+SATELLITE_IMAGES_FOLDER = "image_repo/Sample_Satellite_Images"
+
 
 def main():
     st.set_page_config(page_title='SatellightSight', layout="wide")
 
+    # Symbiosis Logo
     with st.container():
         _, middle, _ = st.columns((5, 1, 5))
         with middle:
@@ -28,8 +31,11 @@ def main():
     st.write("##")
     st.subheader('An automated machine learning approach to detect waste dumps in satellite images')
     st.write("It uses texture analysis techniques like GLCM and LBP.")
-    st.write("A state-of-the-art Sliding Window Algorithm to analyses sub-images. It is adapted to the training data used for the model.")
-    st.write("A binary classifier model is used to classify each sub-image of a given satellite image into 2 categories- waste or non-waste.")
+    st.write("A state-of-the-art Sliding Window Algorithm to analyses sub-images. "
+             "It is adapted to the training data used for the model.")
+    st.write("A binary classifier model is used to classify each sub-image of a given satellite image into 2 "
+             "categories- waste or non-waste.")
+    st.divider()
     # DISPLAY SAMPLE ANNOTATION
     # with st.container():
     #     original_img, arrow, annotated_img = st.columns((5, 1, 5))
@@ -43,11 +49,12 @@ def main():
     st.write("##")
     st.write("##")
 
-    sample_images_folder = "image_repo/Sample_Satellite_Images"
     img_rgb = image_select(
         label="Select a Satellite Image",
         images=[
-            cv2.cvtColor(cv2.imread(os.path.join(sample_images_folder, path)), cv2.COLOR_BGR2RGB) for path in os.listdir(sample_images_folder)
+            cv2.cvtColor(cv2.imread(os.path.join(SATELLITE_IMAGES_FOLDER, filename)), cv2.COLOR_BGR2RGB)
+            for filename in os.listdir(SATELLITE_IMAGES_FOLDER)
+            if filename.endswith(".jpg")
         ]
         # captions=os.listdir(sample_images_folder)
     )
@@ -56,7 +63,6 @@ def main():
     st.write("##")
 
     # MAIN CODE
-    # if file is not None:
     if img_rgb is not None:
 
         with st.container():
